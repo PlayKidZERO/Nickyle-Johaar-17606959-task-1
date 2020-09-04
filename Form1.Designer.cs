@@ -34,7 +34,7 @@
             // MapOutPut
             // 
             this.MapOutPut.AutoSize = true;
-            this.MapOutPut.Location = new System.Drawing.Point(269, 187);
+            this.MapOutPut.Location = new System.Drawing.Point(193, 182);
             this.MapOutPut.Name = "MapOutPut";
             this.MapOutPut.Size = new System.Drawing.Size(28, 13);
             this.MapOutPut.TabIndex = 0;
@@ -44,10 +44,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 412);
+            this.ClientSize = new System.Drawing.Size(412, 412);
             this.Controls.Add(this.MapOutPut);
             this.Name = "Form1";
             this.Text = "Hero Game";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

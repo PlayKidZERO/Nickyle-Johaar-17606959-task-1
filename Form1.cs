@@ -16,5 +16,10 @@ namespace Nickyle_Johaar_17606959_task_1
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+        }
     }
 }
