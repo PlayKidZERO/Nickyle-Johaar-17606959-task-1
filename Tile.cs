@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
+    //this is a abstract class which holds protected variables
     public abstract class Tile
     {
         protected int x;
         protected int y;
         protected char s;
 
-        //properties
+        //these are all the properties for the positions
         public int PositionY
         {
             get { return y; }
@@ -28,7 +29,7 @@ namespace Nickyle_Johaar_17606959_task_1
             get { return s; }
         }
 
-        //constructor
+        //this is the constructor which controls the positions
         public Tile(int positionx, int positiony, char character)
         {
             y = positiony;
