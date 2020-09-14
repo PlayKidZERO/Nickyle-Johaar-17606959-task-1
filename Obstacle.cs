@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
-    class Obstacle
+    class Obstacle:Tile
     {
+        int x;
+        int y;
+
+        public Obstacle(int xPos, int yPos)
+        {
+            this.x = xPos;
+            this.y = yPos;
+        }
+
+        
     }
+    
 }

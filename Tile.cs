@@ -11,11 +11,11 @@ namespace Nickyle_Johaar_17606959_task_1
         protected int x;
         protected int y;
 
-        public Tile(int xPos, int yPos)
-        {
-            this.x = xPos;
-            this.y= yPos;
-        }
+        //public Tile(int xPos, int yPos)
+        //{
+        //    this.x = xPos;
+        //    this.y= yPos;
+        //}
     }
     public enum TileType
     {
