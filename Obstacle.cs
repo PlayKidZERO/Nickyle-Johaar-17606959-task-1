@@ -8,16 +8,13 @@ namespace Nickyle_Johaar_17606959_task_1
 {
     class Obstacle:Tile
     {
-        int x;
-        int y;
-
-        public Obstacle(int xPos, int yPos)
+        //this my obsticle class that links to my tiles
+        public Obstacle(int positionx, int positiony, char character) : base(positionx, positiony, character)
         {
-            this.x = xPos;
-            this.y = yPos;
+
         }
 
-        
+
     }
     
 }
