@@ -20,12 +20,12 @@ namespace Nickyle_Johaar_17606959_task_1
     {
         
         protected int playerHP;
-        protected int playerMaxHP;
         protected int playerDamage;
-        protected Tile[] playerObserver = new Tile[4];
+        protected int playerMaxHP;
         protected MovementOfCharacter moveToPosition;
+        protected Tile[] playerObserver = new Tile[4];
 
-        public int HP
+        public int PlayerHP
         {
             get { return playerHP; }
             set { playerHP = value; }
