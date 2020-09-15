@@ -14,17 +14,17 @@ namespace Nickyle_Johaar_17606959_task_1
 
         }
         //this is the returnmove method
-        public override MovementOfCharacter ReturnMove(MovementOfCharacter movementOfPlayer = 0)
+        public override MovementOfCharacter ReturnMove(MovementOfCharacter movementStruct = 0)
         {
             int randomRollSelect = select.Next(0, 5);
 
-            while (movementOfPlayer == 0)
+            while (movementStruct == 0)
             {
                 if (randomRollSelect == 0)
                 {
                     if (PlayerObserver[0] is emptyTile)
                     {
-                        movementOfPlayer = MovementOfCharacter.Left;
+                        movementStruct = MovementOfCharacter.Left;
                         PositonX--;
                     }
                     else
@@ -37,7 +37,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[1] is emptyTile)
                     {
-                        movementOfPlayer = MovementOfCharacter.Up;
+                        movementStruct = MovementOfCharacter.Up;
                         PositionY--;
                     }
                     else
@@ -50,7 +50,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[2] is emptyTile)
                     {
-                        movementOfPlayer = MovementOfCharacter.Right;
+                        movementStruct = MovementOfCharacter.Right;
                         PositonX++;
                     }
                     else
@@ -63,7 +63,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[3] is emptyTile)
                     {
-                        movementOfPlayer = MovementOfCharacter.Down;
+                        movementStruct = MovementOfCharacter.Down;
                         PositionY++;
                     }
                     else
@@ -74,11 +74,11 @@ namespace Nickyle_Johaar_17606959_task_1
 
                 else
                 {
-                    movementOfPlayer = MovementOfCharacter.NoMovement;
+                    movementStruct = MovementOfCharacter.NoMovement;
                 }
             }
 
-            return movementOfPlayer;
+            return movementStruct;
         }
     }
 }
