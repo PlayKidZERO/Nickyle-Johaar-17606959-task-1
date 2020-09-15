@@ -32,6 +32,7 @@ namespace Nickyle_Johaar_17606959_task_1
                         randomRollSelect = select.Next(0, 5);
                     }
                 }
+
                 else if (randomRollSelect == 1)
                 {
                     if (PlayerObserver[1] is emptyTile)
@@ -44,6 +45,7 @@ namespace Nickyle_Johaar_17606959_task_1
                         randomRollSelect = select.Next(0, 5);
                     }
                 }
+
                 else if (randomRollSelect == 2)
                 {
                     if (PlayerObserver[2] is emptyTile)
@@ -56,6 +58,7 @@ namespace Nickyle_Johaar_17606959_task_1
                         randomRollSelect = select.Next(0, 5);
                     }
                 }
+
                 else if (randomRollSelect == 3)
                 {
                     if (PlayerObserver[3] is emptyTile)
@@ -68,11 +71,13 @@ namespace Nickyle_Johaar_17606959_task_1
                         randomRollSelect = select.Next(0, 5);
                     }
                 }
+
                 else
                 {
                     movementOfPlayer = MovementOfCharacter.NoMovement;
                 }
             }
+
             return movementOfPlayer;
         }
     }

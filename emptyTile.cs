@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
-    class emptyTile
+    class emptyTile:Tile
     {
+        public emptyTile(int positionx, int positiony, char character = ' ') : base(positionx, positiony, character)
+        {
+
+        }
     }
 }
