@@ -11,6 +11,11 @@ namespace Nickyle_Johaar_17606959_task_1
         private int heightOfGameMap;
         private int widthOfGameMap;
         private int numberOfenemies;
+        private HeroClass playerCharacter;
+
+        public Tile[,] gameMap;
+        public enemiesClass[] playerEnemies;
+        public Random roll = new Random();
 
         public int HeightOfGameMap
         {
@@ -33,22 +38,16 @@ namespace Nickyle_Johaar_17606959_task_1
             set { playerCharacter = value; }
         }
 
-        private HeroClass playerCharacter;
 
-        public Tile[,] gameMap;
-        public enemiesClass[] enemies;
-        public Random r = new Random();
-
-        
         private Tile CreateTile(TileType tiletype)
         {
-            int randomisePositionX = r.Next(0, WidthOfGameMap);
-            int randomisePositionY = r.Next(0, HeightOfGameMap);
+            int randomisePositionX = roll.Next(0, WidthOfGameMap);
+            int randomisePositionY = roll.Next(0, HeightOfGameMap);
 
             while (gameMap[randomisePositionX, randomisePositionY] is Obstacle || gameMap[randomisePositionX, randomisePositionY] is character)
             {
-                randomisePositionX = r.Next(0, WidthOfGameMap);
-                randomisePositionY = r.Next(0, HeightOfGameMap);
+                randomisePositionX = roll.Next(0, WidthOfGameMap);
+                randomisePositionY = roll.Next(0, HeightOfGameMap);
             }
             if (tiletype == TileType.Hero)
             {
@@ -65,24 +64,24 @@ namespace Nickyle_Johaar_17606959_task_1
         //this is the contructor of the game
         public MapClass(int minWidth, int maxWidth, int minHeight, int maxHeight, int numberOfenemies)
         {
-            this.WidthOfGameMap = r.Next(minWidth, maxWidth);
-            this.HeightOfGameMap = r.Next(minHeight, maxHeight);
+            this.WidthOfGameMap = roll.Next(minWidth, maxWidth);
+            this.HeightOfGameMap = roll.Next(minHeight, maxHeight);
             this.NumberOfEnemies = numberOfenemies;
 
             gameMap = new Tile[WidthOfGameMap, HeightOfGameMap];
-            enemies = new enemiesClass[NumberOfEnemies];
+            playerEnemies = new enemiesClass[NumberOfEnemies];
 
             MapInitialization();
-            Tile tempHero = CreateTile(TileType.Hero);
-            gameMap[playerCharacter.PositonX, playerCharacter.PositionY] = tempHero;
+            Tile characterHero = CreateTile(TileType.Hero);
+            gameMap[playerCharacter.PositonX, playerCharacter.PositionY] = characterHero;
 
 
-            for (int i = 0; i < enemies.Length; i++)
+            for (int i = 0; i < playerEnemies.Length; i++)
             {
-                enemies[i] = (enemiesClass)CreateTile(TileType.Enemy);
-                gameMap[enemies[i].PositonX, enemies[i].PositionY] = enemies[i];
+                playerEnemies[i] = (enemiesClass)CreateTile(TileType.Enemy);
+                gameMap[playerEnemies[i].PositonX, playerEnemies[i].PositionY] = playerEnemies[i];
             }
-            UpdateVision();
+            VisionUpdate();
         }
         public void GenerateOB()
         {
@@ -109,14 +108,14 @@ namespace Nickyle_Johaar_17606959_task_1
             }
             GenerateOB();
         }
-        public void UpdateVision()
+        public void VisionUpdate()
         {
             playerCharacter.PlayerObserver[0] = gameMap[playerCharacter.PositonX - 1, playerCharacter.PositionY];
             playerCharacter.PlayerObserver[1] = gameMap[playerCharacter.PositonX - 1, playerCharacter.PositionY];
             playerCharacter.PlayerObserver[2] = gameMap[playerCharacter.PositonX + 1, playerCharacter.PositionY];
             playerCharacter.PlayerObserver[3] = gameMap[playerCharacter.PositonX + 1, playerCharacter.PositionY];
 
-            foreach (enemiesClass enemySelect in enemies)
+            foreach (enemiesClass enemySelect in playerEnemies)
             {
                 enemySelect.PlayerObserver[0] = gameMap[enemySelect.PositonX - 1, enemySelect.PositionY];
                 enemySelect.PlayerObserver[1] = gameMap[enemySelect.PositonX - 1, enemySelect.PositionY];
@@ -130,7 +129,7 @@ namespace Nickyle_Johaar_17606959_task_1
             MapInitialization();
             gameMap[playerCharacter.PositonX, playerCharacter.PositionY] = playerCharacter;
 
-            foreach (enemiesClass enemySelect in enemies)
+            foreach (enemiesClass enemySelect in playerEnemies)
             {
                 gameMap[enemySelect.PositonX, enemySelect.PositionY] = enemySelect;
             }
