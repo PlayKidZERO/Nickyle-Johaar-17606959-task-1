@@ -9,22 +9,22 @@ namespace Nickyle_Johaar_17606959_task_1
     class GoblinClass:enemiesClass
     {
         //Goblin class that holds and controll random values
-        public GoblinClass(int positionx, int positiony, char character = 'G', int playerDamage = 1, int playerHp = 10) : base(positionx, positiony, character, playerDamage, playerHp)
+        public GoblinClass(int positionx, int positiony, string character = "G", int playerDamage = 1, int playerHp = 10) : base(positionx, positiony, character, playerDamage, playerHp)
         {
 
         }
         //this is the returnmove method
-        public override MovementOfCharacter ReturnMove(MovementOfCharacter movementStruct = 0)
+        public override MovementOfCharacter ReturnMove(MovementOfCharacter movementStructure = 0)
         {
             int randomRollSelect = select.Next(0, 5);
 
-            while (movementStruct == 0)
+            while (movementStructure == 0)
             {
                 if (randomRollSelect == 0)
                 {
                     if (PlayerObserver[0] is emptyTile)
                     {
-                        movementStruct = MovementOfCharacter.Left;
+                        movementStructure = MovementOfCharacter.Left;
                         PositonX--;
                     }
                     else
@@ -37,7 +37,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[1] is emptyTile)
                     {
-                        movementStruct = MovementOfCharacter.Up;
+                        movementStructure = MovementOfCharacter.Up;
                         PositionY--;
                     }
                     else
@@ -50,7 +50,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[2] is emptyTile)
                     {
-                        movementStruct = MovementOfCharacter.Right;
+                        movementStructure = MovementOfCharacter.Right;
                         PositonX++;
                     }
                     else
@@ -63,7 +63,7 @@ namespace Nickyle_Johaar_17606959_task_1
                 {
                     if (PlayerObserver[3] is emptyTile)
                     {
-                        movementStruct = MovementOfCharacter.Down;
+                        movementStructure = MovementOfCharacter.Down;
                         PositionY++;
                     }
                     else
@@ -74,11 +74,11 @@ namespace Nickyle_Johaar_17606959_task_1
 
                 else
                 {
-                    movementStruct = MovementOfCharacter.NoMovement;
+                    movementStructure = MovementOfCharacter.NoMovement;
                 }
             }
 
-            return movementStruct;
+            return movementStructure;
         }
     }
 }

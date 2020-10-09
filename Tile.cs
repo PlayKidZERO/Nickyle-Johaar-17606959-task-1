@@ -11,8 +11,15 @@ namespace Nickyle_Johaar_17606959_task_1
     {
         protected int x;
         protected int y;
-        protected char s;
+        protected string s;
 
+        //this is the constructor which controls the positions
+        public Tile(int positionx, int positiony, string character)
+        {
+            y = positiony;
+            x = positionx;
+            s = character;
+        }
         //these are all the properties for the positions
         public int PositionY
         {
@@ -24,18 +31,12 @@ namespace Nickyle_Johaar_17606959_task_1
             get { return x; }
             set { x = value; }
         }
-        public char Character
+        public string Character
         {
             get { return s; }
         }
 
-        //this is the constructor which controls the positions
-        public Tile(int positionx, int positiony, char character)
-        {
-            y = positiony;
-            x = positionx;
-            s = character;
-        }
+       
     }
     public enum TileType
     {

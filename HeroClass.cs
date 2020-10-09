@@ -9,7 +9,7 @@ namespace Nickyle_Johaar_17606959_task_1
     class HeroClass:character
     {
         //this controls the hero of the game
-        public HeroClass(int positionx, int positiony, int playerhp, char character = 'H', int playerdamage = 2) : base(positionx, positiony, character)
+        public HeroClass(int positionx, int positiony, int playerhp, string character = "H", int playerdamage = 2) : base(positionx, positiony, character)
         {
 
         }

@@ -11,16 +11,16 @@ namespace Nickyle_Johaar_17606959_task_1
     {
         protected Random select = new Random();
 
-        public enemiesClass(int positionx, int positiony, char character, int playerhp,int playerdamage ) : base(positionx, positiony, character)
+        public override string ToString()
+        {
+            return "your position: " + PositonX + "," + PositionY + "damage: " + PlayerDamage;
+        }
+        public enemiesClass(int positionx, int positiony, string character, int playerhp,int playerdamage ) : base(positionx, positiony, character)
         {
             PlayerMaxHP = playerhp;
             PlayerHP = playerhp;
             PlayerDamage = playerdamage;
         }
 
-        public override string ToString()
-        {
-            return "by [" + PositonX + "," + PositionY + "] (" + PlayerDamage + ")";
-        }
     }
 }

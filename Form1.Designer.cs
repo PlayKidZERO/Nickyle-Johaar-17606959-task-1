@@ -39,7 +39,7 @@
             // MapOutPut
             // 
             this.MapOutPut.AutoSize = true;
-            this.MapOutPut.Location = new System.Drawing.Point(192, 204);
+            this.MapOutPut.Location = new System.Drawing.Point(38, 59);
             this.MapOutPut.Name = "MapOutPut";
             this.MapOutPut.Size = new System.Drawing.Size(28, 13);
             this.MapOutPut.TabIndex = 0;
@@ -61,6 +61,7 @@
             this.UpButton.TabIndex = 2;
             this.UpButton.Text = "Move Up";
             this.UpButton.UseVisualStyleBackColor = true;
+            this.UpButton.Click += new System.EventHandler(this.UpButton_Click);
             // 
             // DownButton
             // 
@@ -70,6 +71,7 @@
             this.DownButton.TabIndex = 3;
             this.DownButton.Text = "Move Down";
             this.DownButton.UseVisualStyleBackColor = true;
+            this.DownButton.Click += new System.EventHandler(this.DownButton_Click);
             // 
             // RightButton
             // 
@@ -79,6 +81,7 @@
             this.RightButton.TabIndex = 4;
             this.RightButton.Text = "Move Right";
             this.RightButton.UseVisualStyleBackColor = true;
+            this.RightButton.Click += new System.EventHandler(this.RightButton_Click);
             // 
             // LeftButon
             // 
@@ -88,6 +91,7 @@
             this.LeftButon.TabIndex = 5;
             this.LeftButon.Text = "Move Left";
             this.LeftButon.UseVisualStyleBackColor = true;
+            this.LeftButon.Click += new System.EventHandler(this.LeftButon_Click);
             // 
             // Form1
             // 
