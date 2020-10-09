@@ -9,7 +9,7 @@ namespace Nickyle_Johaar_17606959_task_1
     class GameEngineClass
     {
         //creates the size of the map
-        private MapClass mapDisplay = new MapClass(20, 30, 20, 45, 10);
+        private MapClass mapDisplay = new MapClass(20, 30, 20, 40, 10);
 
         public MapClass MapDisplay
         {
