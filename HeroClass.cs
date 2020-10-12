@@ -6,28 +6,29 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
-    class HeroClass:character
+    [Serializable]
+    class HeroClass : character
     {
-        //this controls the hero of the game
-        public HeroClass(int positionx, int positiony, int playerhp, string character = "H", int playerdamage = 2) : base(positionx, positiony, character)
+        public HeroClass(int positionx, int positiony, int playerhp, string characterS = "H", int playerdamage = 2) : base(positionx, positiony, characterS)
         {
-
+            PlayerHP = playerhp;
+            PlayerDamage = playerdamage;
+            PlayerMaxHP = playerhp;
         }
-        //this displays the output throughout the game
         public override string ToString()
         {
-            return "Your Values:\n"  + "\nPlayer Damage:" + PlayerDamage +"\t"+ "HitPoints:" + PlayerHP + "/" + PlayerMaxHP + "\n" + PositonX + "," + PositionY + "";
-
+            return "Player Values:\n" + "PlayerHP:" + PlayerHP + "/" + PlayerMaxHP + "\nPlayer at position(" + PositionX + "," + PositionY + ")\n" + "Player Damage:" + PlayerDamage
+                + "\nGold Earned: " + GoldPickUp;
         }
-        // this is return method
+        //this is the return move method in the hero class
         public override MovementOfCharacter ReturnMove(MovementOfCharacter movementOfPlayer)
         {
             if (movementOfPlayer == MovementOfCharacter.Left)
             {
-                if (PlayerObserver[0] is emptyTile)
+                if (PlayerObserver[1] is emptyTile || PlayerObserver[1] is ItemClass)
                 {
                     movementOfPlayer = MovementOfCharacter.Left;
-                    PositonX--;
+                    PositionY--;
                 }
                 else
                 {
@@ -36,10 +37,10 @@ namespace Nickyle_Johaar_17606959_task_1
             }
             else if (movementOfPlayer == MovementOfCharacter.Up)
             {
-                if (PlayerObserver[1] is emptyTile)
+                if (PlayerObserver[0] is emptyTile || PlayerObserver[0] is ItemClass)
                 {
                     movementOfPlayer = MovementOfCharacter.Up;
-                    PositionY--;
+                    PositionX--;
                 }
                 else
                 {
@@ -48,10 +49,10 @@ namespace Nickyle_Johaar_17606959_task_1
             }
             else if (movementOfPlayer == MovementOfCharacter.Right)
             {
-                if (PlayerObserver[2] is emptyTile)
+                if (PlayerObserver[3] is emptyTile || PlayerObserver[3] is ItemClass)
                 {
                     movementOfPlayer = MovementOfCharacter.Right;
-                    PositonX++;
+                    PositionY++;
                 }
                 else
                 {
@@ -60,10 +61,10 @@ namespace Nickyle_Johaar_17606959_task_1
             }
             else if (movementOfPlayer == MovementOfCharacter.Down)
             {
-                if (PlayerObserver[3] is emptyTile)
+                if (PlayerObserver[2] is emptyTile || PlayerObserver[2] is ItemClass)
                 {
                     movementOfPlayer = MovementOfCharacter.Down;
-                    PositionY++;
+                    PositionX++;
                 }
                 else
                 {
@@ -73,6 +74,6 @@ namespace Nickyle_Johaar_17606959_task_1
             return movementOfPlayer;
         }
 
-      
+
     }
 }

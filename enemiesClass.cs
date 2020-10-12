@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
-    //enemy class that controlls damage 
-    abstract class enemiesClass: character
+    [Serializable]
+    abstract class enemiesClass : character
     {
         protected Random select = new Random();
 
         public override string ToString()
         {
-            return "your position: " + PositonX + "," + PositionY + "damage: " + PlayerDamage;
+            return "by position [" + PositionX + "," + PositionY + "] damage: (" + PlayerDamage + ")";
         }
-        public enemiesClass(int positionx, int positiony, string character, int playerhp,int playerdamage ) : base(positionx, positiony, character)
+        public enemiesClass(int positionx, int positiony, string characterS, int playerdamage, int playerhp) : base(positionx, positiony, characterS)
         {
             PlayerMaxHP = playerhp;
             PlayerHP = playerhp;

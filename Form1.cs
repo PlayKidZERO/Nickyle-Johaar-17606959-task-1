@@ -12,51 +12,109 @@ namespace Nickyle_Johaar_17606959_task_1
 {
     public partial class Form1 : Form
     {
-        GameEngineClass workingEngine;
+        List<enemiesClass> enemies = new List<enemiesClass>();
+        GameEngineClass workingGameEngine;
         public Form1()
         {
             InitializeComponent();
-            workingEngine = new GameEngineClass();
-            MapOutput();
+            workingGameEngine = new GameEngineClass();
+            MapDisplayOutPut();
+            PlayerDisplayStatistics();
+        }
+        private void LoadButton_Click_1(object sender, EventArgs e)
+        {
+            workingGameEngine.LoadGame();
+            enemies = new List<enemiesClass>();
+            MapOutPut.Text = "";
+            MapOutPut.Text = workingGameEngine.ToString();
+            PlayerDisplayStatistics();
+
+            foreach (enemiesClass enemySelected in workingGameEngine.MapDisplay.playerEnemies)
+            {
+                if (workingGameEngine.MapDisplay.PlayerCharacter.CheckRange(enemySelected) && enemySelected.IsDead() == false)
+                {
+                    enemies.Add(enemySelected);
+                    EnemyOutPut.Items.Add(enemySelected.ToString());
+                }
+            }
+        }
+        public void MapDisplayOutPut()
+        {
+            MapOutPut.Text = workingGameEngine.ToString();
+        }
+        public void GameOperation()
+        {
+            enemies = new List<enemiesClass>();
+            EnemyOutPut.Items.Clear();
+            EnemyOutPut.Items.Remove(EnemyOutPut.SelectedItem);
+            workingGameEngine.EnemyMove();
+            MapOutPut.Text = "";
+            MapOutPut.Text = workingGameEngine.ToString();
+            PlayerDisplayStatistics();
+
+            foreach (enemiesClass enemySelected in workingGameEngine.MapDisplay.playerEnemies)
+            {
+                if (workingGameEngine.MapDisplay.PlayerCharacter.CheckRange(enemySelected) && enemySelected.IsDead() == false)
+                {
+                    enemies.Add(enemySelected);
+                    EnemyOutPut.Items.Add(enemySelected.ToString());
+                }
+            }
+        }
+       
+
+        public void PlayerDisplayStatistics()
+        {
+            DisplayResults.Text = "";
+            DisplayResults.Text = workingGameEngine.MapDisplay.PlayerCharacter.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("test");
-        }
-        public void MapOutput()
-        {
-            MapOutPut.Text = workingEngine.ToString();
-        }
-        public void GameOperation()
-        {
-            workingEngine.EnemyMove();
-            MapOutPut.Text = "";
-            MapOutPut.Text = workingEngine.ToString();
+
         }
 
+        private void SaveButton_Click_1(object sender, EventArgs e)
+        {
+            workingGameEngine.SaveGame();
+        }
         private void UpButton_Click(object sender, EventArgs e)
         {
-            workingEngine.PlayerCharacterMovement(MovementOfCharacter.Up);
+            workingGameEngine.MovePlayer(MovementOfCharacter.Up);
             GameOperation();
         }
 
         private void DownButton_Click(object sender, EventArgs e)
         {
-            workingEngine.PlayerCharacterMovement(MovementOfCharacter.Down);
+            workingGameEngine.MovePlayer(MovementOfCharacter.Down);
             GameOperation();
         }
 
         private void RightButton_Click(object sender, EventArgs e)
         {
-            workingEngine.PlayerCharacterMovement(MovementOfCharacter.Right);
+            workingGameEngine.MovePlayer(MovementOfCharacter.Right);
             GameOperation();
         }
 
         private void LeftButon_Click(object sender, EventArgs e)
         {
-            workingEngine.PlayerCharacterMovement(MovementOfCharacter.Left);
+            workingGameEngine.MovePlayer(MovementOfCharacter.Left);
             GameOperation();
         }
+        
+        private void AttackButton_Click(object sender, EventArgs e)
+        {
+            if (EnemyOutPut.SelectedText != " ")
+            {
+                workingGameEngine.MapDisplay.PlayerCharacter.Attack(enemies[EnemyOutPut.SelectedIndex]);
+                OutPutOfGame.Text = enemies[EnemyOutPut.SelectedIndex].ToString();
+                workingGameEngine.EnemyAttack();
+                MapOutPut.Text = "";
+                MapOutPut.Text = workingGameEngine.ToString();
+                PlayerDisplayStatistics();
+            }
+        }
+
+        
     }
 }

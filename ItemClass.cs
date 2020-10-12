@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace Nickyle_Johaar_17606959_task_1
 {
     [Serializable]
-    class emptyTile : Tile
+    abstract class ItemClass : Tile
     {
-        public emptyTile(int positionx, int positiony, string characterS = ".") : base(positionx, positiony, characterS)
+        //public abstract string ToString();
+        public ItemClass(int positionx, int positiony, string characterS) : base(positionx, positiony, characterS)
         {
 
         }
+
+
     }
 }

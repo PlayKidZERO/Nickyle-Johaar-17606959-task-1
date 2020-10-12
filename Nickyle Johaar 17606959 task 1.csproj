@@ -57,7 +57,10 @@
     </Compile>
     <Compile Include="GameEngineClass.cs" />
     <Compile Include="GoblinClass.cs" />
+    <Compile Include="GoldClass.cs" />
     <Compile Include="HeroClass.cs" />
+    <Compile Include="ItemClass.cs" />
+    <Compile Include="MageClass.cs" />
     <Compile Include="MapClass.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Program.cs" />

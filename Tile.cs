@@ -6,44 +6,38 @@ using System.Threading.Tasks;
 
 namespace Nickyle_Johaar_17606959_task_1
 {
+    [Serializable]
     //this is a abstract class which holds protected variables
-    public abstract class Tile
+    abstract class Tile
     {
         protected int x;
         protected int y;
         protected string s;
 
         //this is the constructor which controls the positions
-        public Tile(int positionx, int positiony, string character)
+        public Tile(int positionx, int positiony, string characterS)
         {
-            y = positiony;
             x = positionx;
-            s = character;
+            y = positiony;
+            s = characterS;
         }
         //these are all the properties for the positions
+        public int PositionX
+        {
+            get { return x; }
+            set { x = value; }
+        }
         public int PositionY
         {
             get { return y; }
             set { y = value; }
-        }
-        public int PositonX
-        {
-            get { return x; }
-            set { x = value; }
         }
         public string Character
         {
             get { return s; }
         }
 
-       
+
     }
-    public enum TileType
-    {
-        Hero,
-        Enemy,
-        Gold,
-        weapon
-    }
-   
+
 }
